@@ -1,6 +1,9 @@
 class KnightsController < ActionController::Base
 
-  def new
-
+  def home
   end
+
+  def game
+  end
+
 end
