@@ -4,6 +4,7 @@ class KnightsController < ActionController::Base
   end
 
   def game
+    @game = Game.new
   end
 
 end
