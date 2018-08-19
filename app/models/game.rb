@@ -12,4 +12,8 @@ class Game
     @current_boss = @boss_pool.draw
   end
 
+  def draw_base_card
+    return @bases_pool.draw
+  end
+
 end
