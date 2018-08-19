@@ -58,6 +58,14 @@ describe Base_Lane do
       expect(lane.heros[1]).to eq(nil)
       expect(lane.heros[2]).to eq(nil)
     end
+
+    it "expects an error if a Base_Card is not passed in" do
+      begin
+        result = lane.add_base("Should Fail")
+      rescue StandardError => e
+        expect(e.message).to eq("Expecting a Base_Card object.")
+      end
+    end
   end
 
   context "hero validations" do
@@ -92,6 +100,14 @@ describe Base_Lane do
       expect(lane.heros[2]).to eq(nil)
       expect(removed_card).to eq(fake_hero_3)
       expect(removed_card.is_a?(Hero_Card)).to eq(true)
+    end
+
+    it "expects an error if a Hero_Card is not passed in" do
+      begin
+        lane.add_hero("Should Error", 0)
+      rescue StandardError => e
+        expect(e.message).to eq("Expecting a Hero_Card object.")
+      end
     end
   end
 end

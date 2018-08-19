@@ -23,7 +23,7 @@ class Base_Lane
     if new_hero.is_a?(Hero_Card)
       @heros[location] = new_hero
     else
-      raise "Expecing a Hero_Card object."
+      raise "Expecting a Hero_Card object."
     end
   end
 
