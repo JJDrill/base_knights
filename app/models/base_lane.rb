@@ -1,9 +1,9 @@
 class Base_Lane
-  attr_reader :base, :knights
+  attr_reader :base, :heros
 
   def initialize
     @base = nil
-    @knights = []
+    @heros = []
   end
 
   def add_base(new_base)
@@ -16,20 +16,20 @@ class Base_Lane
 
   def remove_base
     @base = nil
-    @knights = []
+    @heros = []
   end
 
-  def add_knight(new_knight, location)
-    if new_knight.is_a?(Hero_Card)
-      @knights[location] = new_knight
+  def add_hero(new_hero, location)
+    if new_hero.is_a?(Hero_Card)
+      @heros[location] = new_hero
     else
       raise "Expecing a Hero_Card object."
     end
   end
 
-  def remove_knight(location)
-    removed_card = @knights[location]
-    @knights[location] = nil
+  def remove_hero(location)
+    removed_card = @heros[location]
+    @heros[location] = nil
     return removed_card
   end
 
