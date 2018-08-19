@@ -41,6 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'faker'
+  gem 'pry-rails'
 end
 
 group :development do
