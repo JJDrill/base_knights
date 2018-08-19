@@ -22,7 +22,7 @@ class Deck
   end
 
   def draw
-    @deck.pop()
+    @deck.shift
   end
 
 end
