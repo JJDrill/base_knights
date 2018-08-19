@@ -39,52 +39,61 @@ describe Base_Lane do
     expect(lane.knights).to eq([])
   end
 
-  it "checks add_base" do
-    lane.add_base(fake_base)
-    expect(lane.base).to eq(fake_base)
+  context "base validations" do
+
+    it "checks add_base" do
+      lane.add_base(fake_base)
+      expect(lane.base).to eq(fake_base)
+    end
+
+    it "checks remove_base" do
+      lane.add_base(fake_base)
+      expect(lane.base).to eq(fake_base)
+      lane.add_knight(fake_hero_1, 0)
+      lane.add_knight(fake_hero_2, 1)
+      lane.add_knight(fake_hero_3, 2)
+
+      lane.remove_base
+      expect(lane.base).to eq(nil)
+      expect(lane.knights[0]).to eq(nil)
+      expect(lane.knights[1]).to eq(nil)
+      expect(lane.knights[2]).to eq(nil)
+    end
   end
 
-  it "checks remove_base" do
-    lane.add_base(fake_base)
-    expect(lane.base).to eq(fake_base)
-    lane.add_knight(fake_hero_1, 0)
-    lane.add_knight(fake_hero_2, 1)
-    lane.add_knight(fake_hero_3, 2)
+  context "hero validations" do
 
-    lane.remove_base
-    expect(lane.base).to eq(nil)
-    expect(lane.knights[0]).to eq(nil)
-    expect(lane.knights[1]).to eq(nil)
-    expect(lane.knights[2]).to eq(nil)
-  end
+    it "checks add knight" do
+      lane.add_knight(fake_hero_1, 0)
+      lane.add_knight(fake_hero_2, 1)
+      lane.add_knight(fake_hero_3, 2)
+      expect(lane.knights[0]).to eq(fake_hero_1)
+      expect(lane.knights[1]).to eq(fake_hero_2)
+      expect(lane.knights[2]).to eq(fake_hero_3)
+    end
 
-  it "checks add knight" do
-    lane.add_knight(fake_hero_1, 0)
-    lane.add_knight(fake_hero_2, 1)
-    lane.add_knight(fake_hero_3, 2)
-    expect(lane.knights[0]).to eq(fake_hero_1)
-    expect(lane.knights[1]).to eq(fake_hero_2)
-    expect(lane.knights[2]).to eq(fake_hero_3)
-  end
+    it "checks remove knight" do
+      lane.add_knight(fake_hero_1, 0)
+      lane.add_knight(fake_hero_2, 1)
+      lane.add_knight(fake_hero_3, 2)
+      expect(lane.knights[0]).to eq(fake_hero_1)
+      expect(lane.knights[1]).to eq(fake_hero_2)
+      expect(lane.knights[2]).to eq(fake_hero_3)
 
-  it "checks remove knight" do
-    lane.add_knight(fake_hero_1, 0)
-    lane.add_knight(fake_hero_2, 1)
-    lane.add_knight(fake_hero_3, 2)
-    expect(lane.knights[0]).to eq(fake_hero_1)
-    expect(lane.knights[1]).to eq(fake_hero_2)
-    expect(lane.knights[2]).to eq(fake_hero_3)
+      removed_card = lane.remove_knight(0)
+      expect(lane.knights[0]).to eq(nil)
+      expect(removed_card).to eq(fake_hero_1)
+      expect(removed_card.is_a?(Hero_Card)).to eq(true)
 
-    removed_card = lane.remove_knight(0)
-    expect(lane.knights[0]).to eq(nil)
-    expect(removed_card).to eq(fake_hero_1)
+      removed_card = lane.remove_knight(1)
+      expect(lane.knights[1]).to eq(nil)
+      expect(removed_card).to eq(fake_hero_2)
+      expect(removed_card.is_a?(Hero_Card)).to eq(true)
 
-    removed_card = lane.remove_knight(1)
-    expect(lane.knights[1]).to eq(nil)
-    expect(removed_card).to eq(fake_hero_2)
-
-    removed_card = lane.remove_knight(2)
-    expect(lane.knights[2]).to eq(nil)
-    expect(removed_card).to eq(fake_hero_3)
+      removed_card = lane.remove_knight(2)
+      expect(lane.knights[2]).to eq(nil)
+      expect(removed_card).to eq(fake_hero_3)
+      expect(removed_card.is_a?(Hero_Card)).to eq(true)
+    end
   end
 end

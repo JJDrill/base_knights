@@ -7,7 +7,11 @@ class Base_Lane
   end
 
   def add_base(new_base)
-    @base = new_base
+    if new_base.is_a?(Base_Card)
+      @base = new_base
+    else
+      raise "Expecting a Base_Card object."
+    end
   end
 
   def remove_base
@@ -16,7 +20,11 @@ class Base_Lane
   end
 
   def add_knight(new_knight, location)
-    @knights[location] = new_knight
+    if new_knight.is_a?(Hero_Card)
+      @knights[location] = new_knight
+    else
+      raise "Expecing a Hero_Card object."
+    end
   end
 
   def remove_knight(location)
