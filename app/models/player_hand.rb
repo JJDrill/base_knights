@@ -1,4 +1,4 @@
-class Hand
+class Player_Hand
   attr_reader :base_lanes, :drawn_cards, :discard_pile
 
   def initialize
