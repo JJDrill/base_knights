@@ -2,16 +2,16 @@ class Base_Lane
   attr_reader :base, :knights
 
   def initialize
-    @base_card = nil
+    @base = nil
     @knights = []
   end
 
   def add_base(new_base)
-    @base_card = new_base
+    @base = new_base
   end
 
   def remove_base
-    @base_card = nil
+    @base = nil
     @knights = []
   end
 
