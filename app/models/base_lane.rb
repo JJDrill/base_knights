@@ -15,8 +15,10 @@ class Base_Lane
   end
 
   def remove_base
+    card = @base
     @base = nil
     @heros = []
+    return card
   end
 
   def add_hero(new_hero, location)

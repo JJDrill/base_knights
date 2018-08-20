@@ -16,4 +16,24 @@ class Player_Hand
     end
   end
 
+  def move_drawn_base_to_lane(drawn_card_id, lane_id)
+    if @drawn_cards[drawn_card_id].nil?
+      raise "No card to draw at location #{drawn_card_id}"
+    end
+
+    if @drawn_cards[drawn_card_id].is_a?(Hero_Card)
+      raise "Expecting a Base_Card object."
+    end
+
+    card = @drawn_cards[drawn_card_id]
+
+    if @base_lanes[lane_id].base != nil
+      card_to_discard = @base_lanes[lane_id].remove_base
+      @discard_pile.push(card_to_discard)
+    end
+
+    @base_lanes[lane_id].add_base(card)
+    @drawn_cards[drawn_card_id] = nil
+  end
+
 end
