@@ -1,4 +1,4 @@
-class KnightsController < ActionController::Base
+class KnightsController < ApplicationController
 
   def home
   end

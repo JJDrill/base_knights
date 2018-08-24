@@ -7,7 +7,7 @@ class Game
     @boss_pool = Deck.new("knights_boss_deck")
     @bases_pool = Deck.new("knights_bases")
     @knights_pool = Deck.new("knights_draw_deck")
-    @user1_hand = Hand.new
+    @user1_hand = Player_Hand.new
 
     @current_boss = @boss_pool.draw
   end
