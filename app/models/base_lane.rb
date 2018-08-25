@@ -8,7 +8,7 @@ class BaseLane
   end
 
   def add_base(new_base)
-    return unless new_base.is_a?(BaseCard)
+    raise 'Expecting a BaseCard.' unless new_base.is_a?(BaseCard)
     @base = new_base
   end
 
@@ -20,7 +20,7 @@ class BaseLane
   end
 
   def add_hero(new_hero, location)
-    return unless new_hero.is_a?(Hero_Card)
+    raise 'Expecting a HeroCard.' unless new_hero.is_a?(Hero_Card)
     @heros[location] = new_hero
   end
 

@@ -24,5 +24,4 @@ class Deck
   def draw
     @deck.shift
   end
-
 end

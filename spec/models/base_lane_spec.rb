@@ -59,11 +59,13 @@ describe BaseLane do
     end
 
     it 'expects an error if a BaseCard is not passed in' do
+      error_message = ''
       begin
         lane.add_base('Should Fail')
       rescue StandardError => e
-        expect(e.message).to eq('Expecting a BaseCard object.')
+        error_message = e.message
       end
+      expect(error_message).to eq('Expecting a BaseCard.')
     end
   end
 
@@ -102,11 +104,13 @@ describe BaseLane do
     end
 
     it 'expects an error if a Hero_Card is not passed in' do
+      error_message = ''
       begin
         lane.add_hero('Should Error', 0)
       rescue StandardError => e
-        expect(e.message).to eq('Expecting a Hero_Card object.')
+        error_message = e.message
       end
+      expect(error_message).to eq('Expecting a HeroCard.')
     end
   end
 end
