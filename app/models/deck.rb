@@ -12,7 +12,6 @@ class Deck
     else
       return "Error: Deck not found."
     end
-
     deck
   end
 
@@ -26,7 +25,7 @@ class Deck
   def bases_deck
     deck = []
     for i in 1..10
-      card = BaseCard.new("Base #{i}", "")
+      card = Base_Card.new("Base #{i}", "")
       deck.push(card)
     end
     shuffle_many(deck)

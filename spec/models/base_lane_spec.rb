@@ -3,7 +3,7 @@ require './app/models/base_lane'
 describe BaseLane do
   before(:each) do
     @lane = BaseLane.new
-    @fake_base = BaseCard.new(
+    @fake_base = Base_Card.new(
       Faker::String.random(20),
       Faker::String.random(50)
     )
@@ -58,14 +58,14 @@ describe BaseLane do
       expect(lane.heros[2]).to eq(nil)
     end
 
-    it 'expects an error if a BaseCard is not passed in' do
+    it 'expects an error if a Base_Card is not passed in' do
       error_message = ''
       begin
         lane.add_base('Should Fail')
       rescue StandardError => e
         error_message = e.message
       end
-      expect(error_message).to eq('Expecting a BaseCard.')
+      expect(error_message).to eq('Expecting a Base_Card.')
     end
   end
 

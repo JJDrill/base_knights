@@ -8,7 +8,7 @@ class BaseLane
   end
 
   def add_base(new_base)
-    raise 'Expecting a BaseCard.' unless new_base.is_a?(BaseCard)
+    raise 'Expecting a Base_Card.' unless new_base.is_a?(Base_Card)
     @base = new_base
   end
 

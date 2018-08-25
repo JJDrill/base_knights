@@ -9,10 +9,10 @@ class Player_Hand
   end
 
   def add_drawn_card(new_card)
-    if new_card.is_a?(BaseCard) || new_card.is_a?(Hero_Card)
+    if new_card.is_a?(Base_Card) || new_card.is_a?(Hero_Card)
       drawn_cards.push(new_card)
     else
-      raise "Expecting a BaseCard or Hero_Card object."
+      raise "Expecting a Base_Card or Hero_Card object."
     end
   end
 
@@ -22,7 +22,7 @@ class Player_Hand
     end
 
     if @drawn_cards[drawn_card_id].is_a?(Hero_Card)
-      raise "Expecting a BaseCard object."
+      raise "Expecting a Base_Card object."
     end
 
     card = @drawn_cards[drawn_card_id]
