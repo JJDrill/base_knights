@@ -1,8 +1,12 @@
 <h1>Base Knights</h1>
 <div class="">
-  <h4>Knights Deck <%= @game.knights_pool.deck %></h4>
-  <h4>Bases Deck <%= @game.bases_pool.deck  %></h4>
-  <h4>Boss Deck <%= @game.boss_pool.deck  %></h4>
+  <h4>Knights Deck <%= @game.knights_pool %></h4>
+  <h4>Bases Deck</h4>
+  <% @game.bases_deck.each do |card| %>
+    Name: <%= card.name %><br />
+  <% end %>
+
+  <h4>Boss Deck <%= @game.boss_pool  %></h4>
   <h4>Boss Card <%= @game.current_boss  %></h4>
 </div>
 

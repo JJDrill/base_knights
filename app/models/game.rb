@@ -1,15 +1,17 @@
 class Game
   attr_reader :current_boss, :user1_hand
   # debug
-  attr_reader :boss_pool, :bases_pool, :knights_pool
+  attr_reader :boss_pool, :bases_deck, :knights_pool
 
   def initialize
-    @boss_pool = Deck.new("knights_boss_deck")
-    @bases_pool = Deck.new("knights_bases")
-    @knights_pool = Deck.new("knights_draw_deck")
+    deck = Deck.new
+    @bases_deck = []
+    @boss_pool = deck.deal("knights_boss_deck")
+    @bases_deck.push(*deck.deal("bases_deck"))
+    @knights_pool = deck.deal("knights_draw_deck")
     @user1_hand = Player_Hand.new
-
-    @current_boss = @boss_pool.draw
+# byebug
+    @current_boss = @boss_pool.shift
   end
 
   def draw_base_card
