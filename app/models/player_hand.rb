@@ -1,9 +1,9 @@
 class Player_Hand
-  attr_reader :base_lanes, :drawn_cards, :discard_pile
+  attr_reader :BaseLanes, :drawn_cards, :discard_pile
 
   def initialize
-    @base_lanes = []
-    3.times { @base_lanes.push(Base_Lane.new) }
+    @BaseLanes = []
+    3.times { @BaseLanes.push(BaseLane.new) }
     @drawn_cards = []
     @discard_pile = []
   end
@@ -27,12 +27,12 @@ class Player_Hand
 
     card = @drawn_cards[drawn_card_id]
 
-    if @base_lanes[lane_id].base != nil
-      card_to_discard = @base_lanes[lane_id].remove_base
+    if @BaseLanes[lane_id].base != nil
+      card_to_discard = @BaseLanes[lane_id].remove_base
       @discard_pile.push(card_to_discard)
     end
 
-    @base_lanes[lane_id].add_base(card)
+    @BaseLanes[lane_id].add_base(card)
     @drawn_cards[drawn_card_id] = nil
   end
 

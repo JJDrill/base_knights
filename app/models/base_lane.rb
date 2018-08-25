@@ -1,4 +1,5 @@
-class Base_Lane
+# models/BaseLane.rb
+class BaseLane
   attr_reader :base, :heros
 
   def initialize
@@ -7,32 +8,25 @@ class Base_Lane
   end
 
   def add_base(new_base)
-    if new_base.is_a?(BaseCard)
-      @base = new_base
-    else
-      raise "Expecting a BaseCard object."
-    end
+    return unless new_base.is_a?(BaseCard)
+    @base = new_base
   end
 
   def remove_base
     card = @base
     @base = nil
     @heros = []
-    return card
+    card
   end
 
   def add_hero(new_hero, location)
-    if new_hero.is_a?(Hero_Card)
-      @heros[location] = new_hero
-    else
-      raise "Expecting a Hero_Card object."
-    end
+    return unless new_hero.is_a?(Hero_Card)
+    @heros[location] = new_hero
   end
 
   def remove_hero(location)
     removed_card = @heros[location]
     @heros[location] = nil
-    return removed_card
+    removed_card
   end
-
 end

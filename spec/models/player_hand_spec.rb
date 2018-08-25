@@ -23,9 +23,9 @@ describe Player_Hand do
 
   it "checks initialized player hand object" do
     expect(hand.is_a?(Player_Hand)).to eq(true)
-    expect(hand.base_lanes[0].is_a?(Base_Lane)).to eq(true)
-    expect(hand.base_lanes[1].is_a?(Base_Lane)).to eq(true)
-    expect(hand.base_lanes[2].is_a?(Base_Lane)).to eq(true)
+    expect(hand.BaseLanes[0].is_a?(BaseLane)).to eq(true)
+    expect(hand.BaseLanes[1].is_a?(BaseLane)).to eq(true)
+    expect(hand.BaseLanes[2].is_a?(BaseLane)).to eq(true)
     expect(hand.drawn_cards).to eq([])
     expect(hand.discard_pile).to eq([])
   end
@@ -94,7 +94,7 @@ describe Player_Hand do
     it "expects a base card is moved to the first lane" do
       hand.add_drawn_card(base)
       hand.move_drawn_base_to_lane(0, 0)
-      expect(hand.base_lanes[0].base).to eq(base)
+      expect(hand.BaseLanes[0].base).to eq(base)
       expect(hand.drawn_cards[0]).to eq(nil)
       expect(hand.discard_pile.length).to eq(0)
     end
@@ -112,12 +112,12 @@ describe Player_Hand do
       hand.add_drawn_card(base2)
 
       hand.move_drawn_base_to_lane(0, 0)
-      expect(hand.base_lanes[0].base).to eq(base1)
+      expect(hand.BaseLanes[0].base).to eq(base1)
       expect(hand.drawn_cards[0]).to eq(nil)
       expect(hand.discard_pile.length).to eq(0)
 
       hand.move_drawn_base_to_lane(1, 0)
-      expect(hand.base_lanes[0].base).to eq(base2)
+      expect(hand.BaseLanes[0].base).to eq(base2)
       expect(hand.drawn_cards[1]).to eq(nil)
       expect(hand.discard_pile.length).to eq(1)
     end
@@ -140,17 +140,17 @@ describe Player_Hand do
       hand.add_drawn_card(base3)
 
       hand.move_drawn_base_to_lane(0, 0)
-      expect(hand.base_lanes[0].base).to eq(base1)
+      expect(hand.BaseLanes[0].base).to eq(base1)
       expect(hand.drawn_cards[0]).to eq(nil)
       expect(hand.discard_pile.length).to eq(0)
 
       hand.move_drawn_base_to_lane(1, 1)
-      expect(hand.base_lanes[1].base).to eq(base2)
+      expect(hand.BaseLanes[1].base).to eq(base2)
       expect(hand.drawn_cards[1]).to eq(nil)
       expect(hand.discard_pile.length).to eq(0)
 
       hand.move_drawn_base_to_lane(2, 2)
-      expect(hand.base_lanes[2].base).to eq(base3)
+      expect(hand.BaseLanes[2].base).to eq(base3)
       expect(hand.drawn_cards[2]).to eq(nil)
       expect(hand.discard_pile.length).to eq(0)
     end
