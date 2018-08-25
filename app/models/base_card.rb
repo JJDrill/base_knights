@@ -1,4 +1,5 @@
-class Base_Card
+# models/BaseCard.rb
+class BaseCard
   attr_reader :name, :description
 
   def initialize(name, description)

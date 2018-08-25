@@ -4,7 +4,7 @@ describe Base_Lane do
 
   before(:each) do
     @lane = Base_Lane.new
-    @fake_base = Base_Card.new(
+    @fake_base = BaseCard.new(
       Faker::String.random(20),
       Faker::String.random(50)
     )
@@ -59,11 +59,11 @@ describe Base_Lane do
       expect(lane.heros[2]).to eq(nil)
     end
 
-    it "expects an error if a Base_Card is not passed in" do
+    it "expects an error if a BaseCard is not passed in" do
       begin
         result = lane.add_base("Should Fail")
       rescue StandardError => e
-        expect(e.message).to eq("Expecting a Base_Card object.")
+        expect(e.message).to eq("Expecting a BaseCard object.")
       end
     end
   end

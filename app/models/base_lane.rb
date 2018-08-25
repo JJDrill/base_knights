@@ -7,10 +7,10 @@ class Base_Lane
   end
 
   def add_base(new_base)
-    if new_base.is_a?(Base_Card)
+    if new_base.is_a?(BaseCard)
       @base = new_base
     else
-      raise "Expecting a Base_Card object."
+      raise "Expecting a BaseCard object."
     end
   end
 

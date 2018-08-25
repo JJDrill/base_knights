@@ -5,7 +5,7 @@ describe Player_Hand do
 
   before(:each) do
     @hand = Player_Hand.new
-    @base = Base_Card.new(
+    @base = BaseCard.new(
       Faker::String.random(10),
       Faker::String.random(50)
     )
@@ -31,7 +31,7 @@ describe Player_Hand do
   end
 
   context "drawn_cards array tests" do
-    it "expects a Base_Card can be added to the drawn_cards array" do
+    it "expects a BaseCard can be added to the drawn_cards array" do
       expect(hand.drawn_cards.length).to eq(0)
       hand.add_drawn_card(base)
       expect(hand.drawn_cards.length).to eq(1)
@@ -49,7 +49,7 @@ describe Player_Hand do
       expect(hand.drawn_cards.length).to eq(3)
     end
 
-    it "expects Base_Cards and Hero_Cards can be added to the drawn_cards array" do
+    it "expects BaseCards and Hero_Cards can be added to the drawn_cards array" do
       expect(hand.drawn_cards.length).to eq(0)
       hand.add_drawn_card(base)
       expect(hand.drawn_cards.length).to eq(1)
@@ -65,7 +65,7 @@ describe Player_Hand do
       begin
         hand.add_drawn_card("Not a correct card type.")
       rescue StandardError => e
-        expect(e.message).to eq("Expecting a Base_Card or Hero_Card object.")
+        expect(e.message).to eq("Expecting a BaseCard or Hero_Card object.")
         expect(hand.drawn_cards.length).to eq(0)
       end
     end
@@ -73,12 +73,12 @@ describe Player_Hand do
 
   context "move_drawn_base_to_lane tests" do
 
-    it "expects an error when drawn card isn't a Base_Card" do
+    it "expects an error when drawn card isn't a BaseCard" do
       begin
         hand.add_drawn_card(hero)
         hand.move_drawn_base_to_lane(0, 1)
       rescue StandardError => e
-        expect(e.message).to eq("Expecting a Base_Card object.")
+        expect(e.message).to eq("Expecting a BaseCard object.")
       end
       expect(hand.drawn_cards[0]).to eq(hero)
     end
@@ -100,11 +100,11 @@ describe Player_Hand do
     end
 
     it "expects a base card to replace an existing base card" do
-      base1 = Base_Card.new(
+      base1 = BaseCard.new(
         Faker::String.random(10),
         Faker::String.random(50)
       )
-      base2 = Base_Card.new(
+      base2 = BaseCard.new(
         Faker::String.random(10),
         Faker::String.random(50)
       )
@@ -123,15 +123,15 @@ describe Player_Hand do
     end
 
     it "expects bases can be added to all lanes" do
-      base1 = Base_Card.new(
+      base1 = BaseCard.new(
         Faker::String.random(10),
         Faker::String.random(50)
       )
-      base2 = Base_Card.new(
+      base2 = BaseCard.new(
         Faker::String.random(10),
         Faker::String.random(50)
       )
-      base3 = Base_Card.new(
+      base3 = BaseCard.new(
         Faker::String.random(10),
         Faker::String.random(50)
       )
