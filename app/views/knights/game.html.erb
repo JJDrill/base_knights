@@ -10,8 +10,11 @@
     Name: <%= card.name %><br />
   <% end %>
 
-  <h4>Boss Deck <%= @game.boss_pool  %></h4>
-  <h4>Boss Card <%= @game.current_boss  %></h4>
+  <h4>Bosses Deck</h4>
+  <% @game.bosses_deck.each do |card| %>
+    Name: <%= card.name %><br />
+  <% end %>
+  <h4>Boss Card <%= @game.current_boss.name  %></h4>
 </div>
 
 <%= link_to 'Exit Game', knights_path %>

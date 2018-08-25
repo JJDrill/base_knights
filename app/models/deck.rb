@@ -7,14 +7,8 @@ class Deck
       deck = bases_deck
     when "heros_deck"
       deck = heros_deck
-    when "knights_boss_deck"
-      deck = ["Boss 1", "Boss 2", "Boss 3", "Boss 4", "Boss 5",\
-         "Boss 6", "Boss 7", "Boss 8", "Boss 9", "Boss 10"]
-      shuffle_many(deck)
-      bigBosses = ["Big Boss 1", "Big Boss 2", "Big Boss 3"]
-      shuffle_many(bigBosses)
-      deck.push(*bigBosses)
-
+    when "bosses_deck"
+      deck = bosses_deck
     else
       return "Error: Deck not found."
     end
@@ -46,6 +40,24 @@ class Deck
       deck.push(card)
     end
     shuffle_many(deck)
+    deck
+  end
+
+  def bosses_deck
+    deck = []
+    for i in 1..10
+      card = Hero_Card.new("Boss #{i}", "", 1, 1)
+      deck.push(card)
+    end
+    shuffle_many(deck)
+
+    big_bosses = []
+    for i in 1..3
+      card = Hero_Card.new("Big Boss #{i}", "", 1, 1)
+      big_bosses.push(card)
+    end
+    shuffle_many(big_bosses)
+    deck.push(*big_bosses)
     deck
   end
 
