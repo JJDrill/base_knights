@@ -1,5 +1,6 @@
 <!-- <%= react_component("Test_This", { name: "Hello", description: "Description" }) %> -->
 <%= react_component("GameBoard") %>
+<%= link_to 'Exit Game', knights_path %>
 
 <h1>Debug</h1>
 <div class="">
@@ -19,5 +20,3 @@
   <% end %>
   <h4>Boss Card <%= @game.current_boss.name  %></h4>
 </div>
-
-<%= link_to 'Exit Game', knights_path %>
