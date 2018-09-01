@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Lane from "./Lane"
+import BossRow from "./BossRow"
 
 class GameBoard extends React.Component {
   render () {
@@ -24,12 +25,7 @@ class GameBoard extends React.Component {
           </div>
           {/* Right Side of Board */}
           <div className="row col-md-4 GameBoardRight">
-            <div className="row BossesRow">
-              <div className="col-md-4 ActiveBoss">
-              </div>
-              <div className="col-md-4 DiscardedBosses">
-              </div>
-            </div>
+            <BossRow />
           </div>
         </div>
       </div>
