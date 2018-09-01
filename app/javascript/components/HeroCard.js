@@ -1,15 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-class BaseCard extends React.Component {
+class HeroCard extends React.Component {
   render () {
     return (
       <React.Fragment>
-      <div className="BaseCard">
-        <div className="BaseCardName">
+      <div className="HeroCard">
+        <div className="HeroCardName">
           {this.props.name}
         </div>
-        <div className="BaseCardDescription">
+        <div className="HeroCardDescription">
           {this.props.description}
         </div>
       </div>
@@ -18,9 +18,9 @@ class BaseCard extends React.Component {
   }
 }
 
-BaseCard.propTypes = {
+HeroCard.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string
 };
 
-export default BaseCard
+export default HeroCard
