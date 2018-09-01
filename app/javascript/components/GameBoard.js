@@ -5,7 +5,7 @@ import Lane from "./Lane"
 class GameBoard extends React.Component {
   render () {
     return (
-      <div className="GameBoard">
+      <div className="row GameBoard">
         <Lane />
         <Lane />
         <Lane />
