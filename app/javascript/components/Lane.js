@@ -6,12 +6,42 @@ import HeroCard from "./HeroCard"
 class Lane extends React.Component {
   render () {
     return (
-      <div className="Lane">
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <BaseCard />
+      <React.Fragment>
+      <div className="container Lane">
+        <div className="row">
+          <div className="col col-sm-1">
+          </div>
+          <div className="col col col-sm-8">
+            <HeroCard />
+          </div>
+          <div className="col col-sm-1">
+          </div>
+        </div>
+        <div className="row">
+          <div className="col col-sm-1">
+          </div>
+          <div className="col col col-sm-8">
+            <HeroCard />
+          </div>
+          <div className="col col-sm-1">
+          </div>
+        </div>
+        <div className="row">
+          <div className="col col-sm-1">
+          </div>
+          <div className="col col col-sm-8">
+            <HeroCard />
+          </div>
+          <div className="col col-sm-1">
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <BaseCard />
+          </div>
+        </div>
       </div>
+      </React.Fragment>
     );
   }
 }

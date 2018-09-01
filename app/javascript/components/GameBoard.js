@@ -5,6 +5,7 @@ import Lane from "./Lane"
 class GameBoard extends React.Component {
   render () {
     return (
+      <React.Fragment>
       <div className="container">
         <div className="row GameBoard">
           <div className="col-md-3">
@@ -18,6 +19,7 @@ class GameBoard extends React.Component {
           </div>
         </div>
       </div>
+      </React.Fragment>
     );
   }
 }
