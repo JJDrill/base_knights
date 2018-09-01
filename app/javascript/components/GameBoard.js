@@ -6,16 +6,30 @@ class GameBoard extends React.Component {
   render () {
     return (
       <React.Fragment>
-      <div className="container">
-        <div className="row GameBoard">
-          <div className="col-md-3">
-          <Lane />
+      <div className="container GameBoard">
+        <div className="row">
+          {/* Left Side of Board */}
+          <div className="row col-md-8 GameBoardLeft">
+            <div className="row">
+              <div className="col-md-4">
+                <Lane />
+              </div>
+              <div className="col-md-4">
+                <Lane />
+              </div>
+              <div className="col-md-4">
+                <Lane />
+              </div>
+            </div>
           </div>
-          <div className="col-md-3">
-          <Lane />
-          </div>
-          <div className="col-md-3">
-          <Lane />
+          {/* Right Side of Board */}
+          <div className="row col-md-4 GameBoardRight">
+            <div className="row BossesRow">
+              <div className="col-md-4 ActiveBoss">
+              </div>
+              <div className="col-md-4 DiscardedBosses">
+              </div>
+            </div>
           </div>
         </div>
       </div>
